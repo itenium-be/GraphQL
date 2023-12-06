@@ -1,0 +1,20 @@
+{
+  "name": "confac-backend-graphql",
+  "version": "1.0.0",
+  "description": "",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "ex0": "node 0.hello-world.js",
+    "ex1": "node 1.express-graphql-http.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "graphql": "^16.8.1",
+    "graphql-http": "^1.22.0"
+  }
+}
