@@ -1,6 +1,6 @@
 import { graphql, buildSchema } from 'graphql'
 
-const schema = buildSchema(`
+const schema = buildSchema(`#graphql
   type Query {
     hello: String
   }

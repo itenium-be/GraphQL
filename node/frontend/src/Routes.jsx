@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter, Route, Routes as Switch } from 'react-router-dom';
 import { AppWithLayout } from './AppWithLayout';
-import { App } from './App';
+import { App } from './App.jsx';
 
 export const Routes = () => {
   return (

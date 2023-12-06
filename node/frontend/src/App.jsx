@@ -7,12 +7,16 @@ async function runQuery(query, setResult) {
     headers: {
       "Content-Type": "application/json"
     },
-    body: JSON.stringify({ query })
+    body: JSON.stringify({
+      query,
+      // variables: {  },
+    })
   })
 
   const body = await res.json()
   console.log('Result for ' + query.replace(/\s+/g, ''), body)
   setResult(JSON.stringify(body, null, 3))
+  return body;
 }
 
 
@@ -32,14 +36,15 @@ export function App() {
         </div>
       </div>
       <div className="col mt-3 text-center">
-        <button type="button" className="btn btn-success" onClick={() => runQuery(query, setResponse)}>Execute Query</button>
+        <button type="button" className="btn btn-success me-3" onClick={() => runQuery(query, setResponse)}>Execute Query</button>
+        <button type="button" className="btn btn-secondary" onClick={() => runQuery('{ schema }', setResponse)}>Get Schema</button>
       </div>
       {response && (
         <div className="col mt-3">
           <div className="alert alert-info">
             <b>Server Response</b>
             <br />
-            <pre>{response}</pre>
+            <pre>{response.replace(/\\n/g, '\n')}</pre>
           </div>
         </div>
       )}

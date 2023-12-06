@@ -1,17 +1,31 @@
 GraphQL Testing Ground
 ======================
 
-See root README for setting up a local Mongo with Docker and the section "Seeding random data".
+Use the confac-test mongo connection string put on Slack!
+
+You can setup a local mongo, but it's going to take some time to seed it:  
+See [confac README](https://github.com/itenium-be/confac#mongodb) for setting up a local Mongo with Docker and the section "[Seeding random data](https://github.com/itenium-be/confac#seeding-random-data)".
+
+
 
 Examples
 --------
 
 ```sh
+cd node
+npm install
+
 # Hello World example
 npm run ex0
 
 # graphql-http express server
 npm run ex1
+
+# Apollo express server
+npm run ex2
+
+# confac mongo graphql
+npm run ex3
 ```
 
 
