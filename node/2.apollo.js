@@ -32,6 +32,10 @@ const resolvers = {
       console.log('parent', parent);
       console.log('args', args);
       console.log('context', contextValue);
+
+      // The info object can be parsed to select only those fields from mongo:
+      // https://github.com/robrichard/graphql-fields
+      // https://github.com/du5rte/graphql-mongodb-projection
       console.log('info', info);
       return 4;
     }
