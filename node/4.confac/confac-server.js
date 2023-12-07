@@ -1,62 +1,28 @@
 import { ApolloServer } from '@apollo/server';
 import { expressMiddleware } from '@apollo/server/express4';
 import { ApolloServerPluginDrainHttpServer } from '@apollo/server/plugin/drainHttpServer'
+import { makeExecutableSchema } from 'graphql-tools';
 import express from 'express';
 import http from 'http';
 import cors from 'cors';
 import bodyParser from 'body-parser';
 import { confacSchema } from './confac-schema.js';
-import { connectToDatabase, ObjectId } from './db.cjs';
-
-const resolvers = {
-  User: {
-    id: parent => parent.id ?? parent._id,
-  },
-  Query: {
-    hello: () => 'Apollo, about to make contact to mongo',
-    users: async (_, __, context) => await context.db.collection('users').find().toArray(),
-    user: async (_, {id}, context) => {
-      const result = await context.db.collection('users').findOne({_id: new ObjectId(id)})
-      return result;
-    },
-  },
-  Mutation: {
-    createUser: async (_, {name, firstName, roles}, context) => {
-      const user = {
-        email: `${firstName} ${name}`.toLocaleLowerCase().replace(/\s/g, '-') + '@itenium.be',
-        name,
-        firstName,
-        alias: name.toLowerCase().replace(/\s/g, '-'),
-        active: true,
-        roles,
-        audit: {
-          createdOn: new Date().toISOString(),
-          createdBy: context.user.id,
-        }
-      }
-
-      const inserted = await context.db.collection('users').insertOne(user);
-      const createdUser = inserted.ops[0]
-      return createdUser;
-    },
-    deleteUser: async (_, {id}, context) => {
-      const deleteResponse = await context.db.collection('users').findOneAndUpdate({_id: new ObjectId(id)}, {$set: {active: false}});
-      return !!deleteResponse.value;
-    },
-    updateUser: async (_, {id, name, firstName, roles}, context) => {
-      // const {value: originalUser} = await context.db.collection('users')
-      //   .findOneAndUpdate({_id: new ObjectId(id)}, {$set: user}, {returnOriginal: true});
-    },
-  }
-};
+import { connectToDatabase } from './helpers/db.cjs';
 
 const app = express();
 const httpServer = http.createServer(app);
 
+let schema = makeExecutableSchema(confacSchema);
+// Add custom directives
+// import { upperDirectiveTransformer } from './helpers/upperDirectiveTransformer.js'
+// schema = upperDirectiveTransformer(schema, 'upper');
+
 const server = new ApolloServer({
-  typeDefs: confacSchema,
-  resolvers,
+  schema,
   plugins: [ApolloServerPluginDrainHttpServer({ httpServer })],
+  // formatError: (formattedError, error) => {
+  //   return formattedError;
+  // },
 });
 await server.start();
 

@@ -6,7 +6,7 @@ import http from 'http';
 import cors from 'cors';
 import bodyParser from 'body-parser';
 import { confacSchema } from './3.apollo-mongo-schema.js';
-import { connectToDatabase, ObjectId } from './4.confac/db.cjs';
+import { connectToDatabase, ObjectId } from './4.confac/helpers/db.cjs';
 
 const resolvers = {
   User: {

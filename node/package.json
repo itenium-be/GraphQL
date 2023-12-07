@@ -4,6 +4,7 @@
   "type": "module",
   "main": "index.js",
   "scripts": {
+    "start": "npm run ex4",
     "ex0": "nodemon 0.hello-world.js",
     "ex1": "nodemon 1.express-graphql-http.js",
     "ex2": "nodemon 2.apollo.js",
@@ -20,6 +21,8 @@
     "graphql": "^16.8.1",
     "graphql-http": "^1.22.0",
     "graphql-tag": "^2.12.6",
+    "graphql-tools": "^9.0.0",
+    "lodash": "^4.17.21",
     "mongodb": "^3.5.8"
   },
   "devDependencies": {
