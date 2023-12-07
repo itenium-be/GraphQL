@@ -36,3 +36,17 @@ export const confacSchema = `#graphql
     updateUser(id: ID! name: String, firstName: String, roles: [String]): User
   }
 `
+
+
+// TODO: createdBy: id->name --> resolveCreatedByToAlias : https://graphql.org/graphql-js/object-types/
+
+// TODO: @graphql-tools for Date with custom scalar? --> https://stackoverflow.com/a/49694083/540352
+// @skip(if: false)  // @include(if: $includeAudit)
+
+// Subscriptions?
+
+// TODO: https://elfi-y.medium.com/apollo-graphql-custom-directives-2b6c3f1cbc75 --> custom directive for Date
+
+// TODO: global search:
+// https://www.apollographql.com/docs/apollo-server/schema/unions-interfaces#example
+// __typename

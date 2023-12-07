@@ -5,8 +5,8 @@ import express from 'express';
 import http from 'http';
 import cors from 'cors';
 import bodyParser from 'body-parser';
-import { confacSchema } from '../frontend/schema/confac-schema.js';
-import { connectToDatabase, ObjectId } from './db.cjs';
+import { confacSchema } from './3.apollo-mongo-schema.js';
+import { connectToDatabase, ObjectId } from './4.confac/db.cjs';
 
 const resolvers = {
   User: {

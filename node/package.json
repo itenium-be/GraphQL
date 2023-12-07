@@ -7,7 +7,8 @@
     "ex0": "nodemon 0.hello-world.js",
     "ex1": "nodemon 1.express-graphql-http.js",
     "ex2": "nodemon 2.apollo.js",
-    "ex3": "nodemon 3.confac/confac-server.js"
+    "ex3": "nodemon 3.apollo-mongo.js",
+    "ex4": "nodemon 4.confac/confac-server.js"
   },
   "author": "itenium",
   "license": "MIT",

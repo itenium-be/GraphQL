@@ -24,8 +24,11 @@ npm run ex1
 # Apollo express server
 npm run ex2
 
-# confac mongo graphql
+# Apollo + mongo
 npm run ex3
+
+# confac mongo graphql
+npm run ex4
 ```
 
 
