@@ -9,7 +9,7 @@ type Query {
   schema: String!
   random: Float!
   isDev: Boolean! @deprecated(reason: "process.env variable does not seem to be set!")
-  rollDice(numDice: Int!, numSides: Int): [Int]
+  rollDice(numDice: Int = 3, numSides: Int): [Int]
 }
 `
 
