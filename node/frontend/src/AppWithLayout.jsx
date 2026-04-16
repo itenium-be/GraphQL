@@ -5,7 +5,7 @@ export const AppWithLayout = ({Component, ...props}) => {
     <>
       <nav className="top-header navbar navbar-expand-lg navbar-light bg-light" style={{marginBottom: 16}}>
         <span className="navbar-brand">
-          <img src="/itenium.png" alt="itenium logo" style={{marginLeft: 16}} />
+          <img src="/itenium.png" alt="itenium logo" style={{marginLeft: 16, height: 30}} />
         </span>
         <div className="navbar-collapse collapse" id="basic-navbar-nav">
           <div className="mr-auto navbar-nav">
